@@ -1,0 +1,7 @@
+{
+  "name": "proyectoPeliculas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
