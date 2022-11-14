@@ -1,20 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Proyecto Peliculas | Amos Rosado
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <ion-input [(ngModel)]="filtro" placeholder="Introduzca el Genero que quiera buscar">
+  </ion-input>
+  <ion-grid>
+    <ion-row>
+      <ng-container *ngFor="let pelicula of peliculas | async">
+        <ion-col *ngIf="filtro=='' || filtro.toUpperCase()==pelicula.generoPelicula.toUpperCase()" size-xl="2" size-lg="4" size-md="6" size-sm="8" size-xs="14" >
+          <ion-card>
+            <ion-card-content>
+              <ion-img src="https://picsum.photos/200/300?random={{ pelicula.id }}"></ion-img>
+              <ion-card-title> {{ pelicula.pelicula }}</ion-card-title>
+              <b> Dirigido por: {{ pelicula.director }} <br>
+                Protagonizado por: {{ pelicula.actorPrincipal}} </b>
+              <p>{{ pelicula.generoPelicula }}<br> {{pelicula.fechaSalida}} <br>
+                {{ pelicula.precioCines }}<br>
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ng-container> 
+    </ion-row>
+  </ion-grid>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
 </ion-content>

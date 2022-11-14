@@ -25,3 +25,28 @@
 #container a {
   text-decoration: none;
 }
+
+@media (orientation: landscape) {
+  body {
+    flex-direction: row;
+  }
+  p{
+    color:black;
+
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    flex-direction: column;
+  }
+  p{
+    color:black;
+
+  }
+  b{
+    display: none;
+  }
+
+
+}
